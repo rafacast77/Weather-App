@@ -1,0 +1,113 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/cerulean/bootstrap.min.css"
+    />
+
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 p-5 mt-5 mx-auto text-center bg-primary">
+          <h1 id="w-location"></h1>
+          <h3 id="w-description"></h3>
+          <h3 id="w-temp"></h3>
+          <img id="w-icon" />
+          <ul class="list-group mb-3">
+            <li class="list-group-item" id="w-humidity"></li>
+            <li class="list-group-item" id="w-dewpoint"></li>
+            <li class="list-group-item" id="w-feel_like"></li>
+            <li class="list-group-item" id="w-wind"></li>
+          </ul>
+          <hr />
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#change-location"
+          >
+            Change Location
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="change-location"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="change-location-Label"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="change-location-Label">
+              Change Location
+            </h5>
+          </div>
+          <div class="modal-body">
+            <form id="w-form">
+              <div class="form-group">
+                <label>City</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="modal-city"
+                  placeholder="e.g.(London)"
+                />
+              </div>
+              <div class="form-group">
+                <label>Country Code</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="modal-country"
+                  placeholder="e.g.(GB)"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" id="change-loc-btn">
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="weather.js"></script>
+    <script src="ui.js"></script>
+    <script src="util.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
