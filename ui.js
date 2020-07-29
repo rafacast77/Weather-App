@@ -19,15 +19,14 @@ class UI {
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   // Loads new weather values into the DOM
   paint(weatherData) {
-    const util = new Util(),
-      tempF = weatherData.main.temp.toFixed(0),
-      tempC = util.tempFtoC(tempF),
+    const tempF = weatherData.main.temp.toFixed(0),
+      tempC = Util.tempFtoC(tempF),
       humidity = weatherData.main.humidity,
-      dewPointC = util.getDewPointCelsius(tempC, humidity),
-      dewPointF = util.tempCtoF(dewPointC),
+      dewPointC = Util.getDewPointCelsius(tempC, humidity),
+      dewPointF = Util.tempCtoF(dewPointC),
       feelLF = weatherData.main.feels_like.toFixed(0),
-      feelLC = util.tempFtoC(feelLF),
-      windDirection = util.windDirection(weatherData.wind.deg);
+      feelLC = Util.tempFtoC(feelLF),
+      windDirection = Util.windDirection(weatherData.wind.deg);
 
     this.wLocation.textContent =
       weatherData.name + ', ' + weatherData.sys.country;

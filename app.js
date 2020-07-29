@@ -5,9 +5,8 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Init weather, ui, storage object and UI elements
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-const storage = new Storage();
-storage.getLocationData();
-const weather = new Weather(storage.city, storage.country),
+Storage.getLocationData();
+const weather = new Weather(Storage.city, Storage.country),
   ui = new UI(),
   changeLocationModal_EL = document.querySelector('#change-loc-btn'),
   city_EL = document.querySelector('#modal-city'),
@@ -21,12 +20,10 @@ document.addEventListener('DOMContentLoaded', getWeather);
 
 // Change weather
 changeLocationModal_EL.addEventListener('click', () => {
-  storage.setLocationData(city_EL.value, countryCode_EL.value);
   weather.changeLocation(city_EL.value, countryCode_EL.value);
   getWeather();
-  city.value = '';
-  countryCode.value = '';
-  $('#change-location').modal('hide');
+  city_EL.value = '';
+  countryCode_EL.value = '';
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -3,16 +3,15 @@
 // Weather.js is a class which receives the weather location from app.js. It looks for this location on the "OpenWeather" city list and retrieves a citycode used in the OpenWeather API call which returns the current weather of that location.
 ////////////////////////////////////////////////////////////////////////////////
 class Weather {
-
   constructor(city, contryCode) {
     this.APIkey = 'ab74b9f1a02aaef1fc9464aae99bc924';
     this.city = city;
     this.contryCode = contryCode;
   }
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-// Weather Class functions
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // Weather Class functions
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   // Returns current weather from current location
   async getWeatherData() {
     let cityCode = '';
@@ -26,11 +25,16 @@ class Weather {
         cityCode = cityObj.id;
       }
     }
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?id=${cityCode}&units=imperial&appid=${this.APIkey}`
-    );
-    const responseData = await response.json();
-    return responseData;
+    if (cityCode !== '') {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?id=${cityCode}&units=imperial&appid=${this.APIkey}`
+      );
+      const responseData = await response.json();
+      Storage.setLocationData(this.city, this.contryCode);
+      return responseData;
+    } else {
+      Util.alertMessage('City or Country Code are incorrect');
+    }
   }
 
   // Changes current weather location

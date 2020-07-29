@@ -13,12 +13,12 @@ class Storage {
   // Storage Class functions
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   // Sets new weather location on browser storage
-  setLocationData(city, country) {
+  static setLocationData(city, country) {
     localStorage.setItem('city', city);
     localStorage.setItem('country', country);
   }
   // Retrieves the weather location from storage
-  getLocationData() {
+  static getLocationData() {
     if (localStorage.getItem('city') === null) {
       this.city = this.defaultCity;
     } else {
