@@ -1,5 +1,7 @@
 /** @format */
-
+////////////////////////////////////////////////////////////////////////////////
+// UI.js is a class which loads the new weather values into the DOM
+////////////////////////////////////////////////////////////////////////////////
 class UI {
   constructor() {
     this.wLocation = document.querySelector('#w-location');
@@ -12,6 +14,10 @@ class UI {
     this.wWind = document.querySelector('#w-wind');
   }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+// Weather Class functions
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  // Loads new weather values into the DOM
   paint(weatherData) {
     const util = new Util(),
       tempF = weatherData.main.temp.toFixed(0),
@@ -22,6 +28,7 @@ class UI {
       feelLF = weatherData.main.feels_like.toFixed(0),
       feelLC = util.tempFtoC(feelLF),
       windDirection = util.windDirection(weatherData.wind.deg);
+
     this.wLocation.textContent =
       weatherData.name + ', ' + weatherData.sys.country;
     this.wDescription.textContent = weatherData.weather[0].description;
@@ -31,6 +38,7 @@ class UI {
       'src',
       `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`
     );
+    
     this.wHumidity.textContent = 'Relative Humidity: ' + humidity + '%';
     this.wdewpoint.textContent =
       'Dewpoint: ' + dewPointF + ' F (' + dewPointC + ' C)';

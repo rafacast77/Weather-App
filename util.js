@@ -1,14 +1,22 @@
 /** @format */
-
+////////////////////////////////////////////////////////////////////////////////
+// Util.js is a class which contains useful classes which support this application
+////////////////////////////////////////////////////////////////////////////////
 class Util {
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+// Util Class functions
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // Converts temperature from fahrenheit to celsius
   tempFtoC(fahrenheit) {
     return (((fahrenheit - 32) * 5) / 9).toFixed(0);
   }
 
+  // Converts temperature from celsius to fahrenheit
   tempCtoF(celsius) {
     return ((celsius * 9) / 5 + 32).toFixed(0);
   }
 
+  // Returns a text of weather direction given a the direction in degrees
   windDirection(degree) {
     if (degree > 337.5) return 'North';
     if (degree > 292.5) return 'NW';
@@ -23,6 +31,7 @@ class Util {
     return 'North';
   }
 
+  // Return the DewPoint in celsius
   getDewPointCelsius(temp, hum) {
     const tem2 = 6.6,
       r = 42,

@@ -5,21 +5,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Links -->
     <link
       rel="stylesheet"
       href="https://bootswatch.com/4/cerulean/bootstrap.min.css"
     />
-
     <title>Weather App</title>
+    <!-- Styles -->
+    <style>
+      h1,
+      h3,
+      h5 {
+        color: #5c5c5c;
+      }
+    </style>
   </head>
-  <body>
+  <body style="background-color: #264653;">
+    <!-- Main Container -->
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 p-5 mt-5 mx-auto text-center bg-primary">
+        <div
+          class="col-lg-6 p-5 mt-5 mx-auto text-center"
+          style="background-color: rgba(255, 255, 255, 0.884);"
+        >
           <h1 id="w-location"></h1>
           <h3 id="w-description"></h3>
           <h3 id="w-temp"></h3>
-          <img id="w-icon" />
+          <img
+            style="
+              background-color: #5e5e5e8f;
+              border-radius: 35%;
+              margin-bottom: 1rem;
+              margin-top: 0.5rem;
+            "
+            id="w-icon"
+          />
           <ul class="list-group mb-3">
             <li class="list-group-item" id="w-humidity"></li>
             <li class="list-group-item" id="w-dewpoint"></li>
@@ -29,9 +49,10 @@
           <hr />
           <button
             type="button"
-            class="btn btn-primary"
+            class="btn"
             data-toggle="modal"
             data-target="#change-location"
+            style="background-color: #2a9d8f; font-weight: 600; color: #fff;"
           >
             Change Location
           </button>
@@ -55,7 +76,7 @@
           </div>
           <div class="modal-body">
             <form id="w-form">
-              <div class="form-group">
+              <div class="form-group" style="color: #fff;">
                 <label>City</label>
                 <input
                   type="text"
@@ -64,7 +85,7 @@
                   placeholder="e.g.(London)"
                 />
               </div>
-              <div class="form-group">
+              <div class="form-group" style="color: #fff;">
                 <label>Country Code</label>
                 <input
                   type="text"
@@ -83,13 +104,19 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary" id="change-loc-btn">
+            <button
+              type="button"
+              class="btn"
+              id="change-loc-btn"
+              style="background-color: #2a9d8f; font-weight: 600; color: #fff;"
+            >
               Save changes
             </button>
           </div>
         </div>
       </div>
     </div>
+    <!-- Scripts -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -105,9 +132,10 @@
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
     ></script>
+    <script src="storage.js"></script>
     <script src="weather.js"></script>
     <script src="ui.js"></script>
-    <script src="util.js"></script>
     <script src="app.js"></script>
+    <script src="util.js"></script>
   </body>
 </html>
