@@ -14,9 +14,11 @@ class Weather {
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   // Returns current weather from current location
   async getWeatherData() {
+    const storage = new Storage();
     let cityCode = '';
     const cityListResponse = await fetch('./cityList.json');
     const cityListData = await cityListResponse.json();
+    console.log('this.city.toLowerCase():', this.city.toLowerCase());
     for (let cityObj of cityListData) {
       if (
         cityObj.name.toLowerCase() === this.city.toLowerCase() &&
@@ -30,7 +32,7 @@ class Weather {
         `https://api.openweathermap.org/data/2.5/weather?id=${cityCode}&units=imperial&appid=${this.APIkey}`
       );
       const responseData = await response.json();
-      Storage.setLocationData(this.city, this.contryCode);
+      storage.setLocationData(this.city, this.contryCode);
       return responseData;
     } else {
       Util.alertMessage('City or Country Code are incorrect');

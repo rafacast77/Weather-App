@@ -9,18 +9,20 @@ class Storage {
     this.defaultCity = 'London';
     this.defaulCountry = 'GB';
   }
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   // Storage Class functions
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   // Sets new weather location on browser storage
-  static setLocationData(city, country) {
+  setLocationData(city, country) {
     localStorage.setItem('city', city);
     localStorage.setItem('country', country);
   }
   // Retrieves the weather location from storage
-  static getLocationData() {
+  getLocationData() {
     if (localStorage.getItem('city') === null) {
+      console.log(this.defaultCity);
       this.city = this.defaultCity;
+      //console.log(this.city)
     } else {
       this.city = localStorage.getItem('city');
     }

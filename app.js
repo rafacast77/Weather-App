@@ -5,8 +5,9 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Init weather, ui, storage object and UI elements
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Storage.getLocationData();
-const weather = new Weather(Storage.city, Storage.country),
+const storage = new Storage();
+storage.getLocationData();
+const weather = new Weather(storage.city, storage.country),
   ui = new UI(),
   changeLocationModal_EL = document.querySelector('#change-loc-btn'),
   city_EL = document.querySelector('#modal-city'),
